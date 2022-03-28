@@ -11,6 +11,34 @@ const onSignUpFailure = function(data){
     $('.display-text').text(`Account with ${data.credentials.email} already exists`)
 }
 
+const onSignInSuccess = function(){
+
+}
+
+const onSignInFailure = function(){
+
+}
+
+const onChangePasswordSuccess = function(){
+
+}
+
+const onChangePasswordFailure = function(){
+
+}
+
+const onNewGame = function(){
+
+}
+
+const onUpdateGame = function(){
+
+}
+
+const onSignOut = function(){
+ //would we need a success vs failure?????
+}
+
 module.exports = {
     onSignUpFailure,
     onSignUpSuccess
