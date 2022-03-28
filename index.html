@@ -12,6 +12,51 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
+      <div id="homepage">
+        <button id="sign-up-button">Sign Up</button>
+        <br>
+        <button id="sign-in-button">Sign In</button>
+      </div>
+      <div id="sign-up">
+        <p class="display-text"></p>
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="email" placeholder="email">
+          <br>
+          <input name="credentials[password]" type="password" placeholder="password">
+          <br>
+          <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
+          <br>
+          <button type="submit">Sign Up</button>
+        </form>
+        <button class="return-home">Return</button>
+      </div>
+      <div id="sign-in">
+        <p class="display-text"></p>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="email" placeholder="email">
+          <br>
+          <input name="credentials[password]" type="password" placeholder="password">
+          <br>
+          <button type="submit">Sign In</button>
+        </form>
+        <button class="return-home">Return</button>
+      </div>
+      <div id="begin-gam">
+        <p>I represent the begin game screen</p>
+      </div>
+      <div id="game">
+        <div id="gameboard">
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+          <div class="game-square"></div>
+        </div>
+      </div>
     </body>
 </html>
