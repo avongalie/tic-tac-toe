@@ -1,1 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+
+body{
+    text-align: center;
+}
+
+#gameboard{
+    display: grid;
+    grid-template-columns: 10vw 10vw 10vw;
+    grid-template-rows: 10vw 10vw 10vw;
+    justify-content: center;
+}
+
+.game-square{
+    border: 1px solid black;
+}
