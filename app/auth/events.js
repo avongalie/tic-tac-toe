@@ -7,8 +7,8 @@ const store = require('../store.js')
 const getFormFields = require('../../lib/get-form-fields.js')
 
 const onSignUp = function(event){
-    $('.display-text').text('');
     event.preventDefault();
+    $('.display-text').text('');
 
     let form = event.target
     let data = getFormFields(form);
@@ -25,6 +25,35 @@ const onSignUp = function(event){
     }
 }
 
+const onSignIn = function(event){
+    event.preventDefault();
+    $('.display-text').text('');
+
+    let form = event.target
+    let data = getFormFields(form);
+
+        authApi
+            .signIn(data)
+            .then((response) => authUi.onSignInSuccess(response))
+            .catch(() => authUi.onSignInFailure())
+    
+}
+
+const onNewGame = function(event){
+    event.preventDefault();
+    $('.display-text').text('');
+
+    let form = event.target
+    let data = getFormFields(form);
+
+        authApi
+            .signIn(data)
+            .then((response) => authUi.onSignInSuccess(response))
+            .catch(() => authUi.onSignInFailure())
+    
+}
+
 module.exports = {
-    onSignUp
+    onSignUp,
+    onSignIn
 }

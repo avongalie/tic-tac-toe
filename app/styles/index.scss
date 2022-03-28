@@ -6,11 +6,11 @@ body{
 
 #gameboard{
     display: grid;
-    grid-template-columns: 10vw 10vw 10vw;
-    grid-template-rows: 10vw 10vw 10vw;
+    grid-template-columns: 15vw 15vw 15vw;
+    grid-template-rows: 15vw 15vw 15vw;
     justify-content: center;
 }
 
-.game-square{
+#gameboard > div{
     border: 1px solid black;
 }

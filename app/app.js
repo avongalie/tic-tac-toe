@@ -11,10 +11,12 @@ $(() => {
   // your JS code goes here
   $('#sign-up').hide();
   $('#sign-in').hide();
+  $('#begin-game').hide();
+  //$('#game').hide();
   $('#sign-up-button').on("click", display.signUpClick)
   $('#sign-in-button').on("click", display.signInClick)
   $('.return-home').on("click", display.returnHome)
   $("#sign-up-form").on("submit", authEvents.onSignUp);
-  $("#sign-in-form").on("submit", () => console.log("sign in clicked"));
+  $("#sign-in-form").on("submit", authEvents.onSignIn);
 
 })
