@@ -39,21 +39,21 @@ const onSignIn = function(event){
     
 }
 
-const onNewGame = function(event){
-    event.preventDefault();
-    $('.display-text').text('');
-
-    let form = event.target
-    let data = getFormFields(form);
-
+const onNewGame = function(){
+    const guest = $('#guest').val();
         authApi
-            .signIn(data)
-            .then((response) => authUi.onSignInSuccess(response))
-            .catch(() => authUi.onSignInFailure())
+            .newGame()
+            .then((response) => authUi.onNewGame(response, guest))
+            .catch(() => console.log("failure"))
     
+}
+
+const onUpdateGame = function (){
+
 }
 
 module.exports = {
     onSignUp,
-    onSignIn
+    onSignIn,
+    onNewGame
 }

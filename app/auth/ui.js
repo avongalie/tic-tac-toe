@@ -37,8 +37,13 @@ const onChangePasswordFailure = function(){
 
 }
 
-const onNewGame = function(){
-
+const onNewGame = function(response, guest){
+    $('#begin-game').hide();
+    $('#game').show();
+    $('#player1').text(`Player1: ${store.user.email}`);
+    $('#player2').text(`Player2: ${guest}`);
+    store.game = response.game;
+    console.log(store.game);
 }
 
 const onUpdateGame = function(){
@@ -53,5 +58,6 @@ module.exports = {
     onSignUpFailure,
     onSignUpSuccess,
     onSignInFailure,
-    onSignInSuccess
+    onSignInSuccess,
+    onNewGame
 }

@@ -1,4 +1,6 @@
 //file that grabs from the API
+const store = require('../store.js');
+
 
 const signUp = function(data) {
     return $.ajax({
@@ -51,6 +53,7 @@ const updateGame = function(index, value, gameStatus) {
     return $.ajax({
         method: 'PATCH',
         url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + store.user.id,
+        //might need game ID instead?
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
