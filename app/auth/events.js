@@ -11,6 +11,7 @@ let currentLetter = "X";
 let currentPlayer = "player1";
 let guest = "";
 let gameStatus = false;
+let tie = false;
 
 const onSignUp = function(event){
     event.preventDefault();
@@ -50,8 +51,6 @@ const onSignOut = function(){
             .then(function(){
                 authUi.onSignOut()
                 clearBoard();
-                $('#player1').show();
-                $('#player2').show();
             })
 }
 
@@ -80,8 +79,9 @@ const onUpdateGame = function (event){
     gameCell.innerText = currentLetter;
     plays += 1;
     if(plays > 4) checkWin();
+    if(plays === 9 && tie === true) gameOver();
     authApi.updateGame(cellIndex, currentLetter, gameStatus)
-            //.then((response) => console.log(response))
+            .then((response) => console.log(response))
     //console.log(store.game);
     if(currentLetter === "X"){
         currentLetter = "O";
@@ -124,7 +124,7 @@ function checkWin(){
                 //console.log(r);
                 if(r === 3){
                     //win stuff
-                    console.log(`${currentLetter} won!`)
+                   // console.log(`${currentLetter} won!`)
                     gameStatus = true;
                     gameOver();
                 }
@@ -133,6 +133,8 @@ function checkWin(){
             }
         }
     })
+
+    if(gameStatus !== true) tie = true;
 
 }
 
@@ -148,14 +150,18 @@ function gameOver(){
     //store game over in object;
 
   $('#game').off('click', onUpdateGame)
-  if(currentPlayer === "player1"){
-    $('#player1').text(`${store.user.email} won!`);
+  if(tie === true){
+    $('#player1').text(`It's a Tie!`);
     $('#player2').hide();
   }else{
-    $('#player2').text(`${guest} won!`);
-    $('#player1').hide();
-  }
-
+    if(currentPlayer === "player1"){
+        $('#player1').text(`${store.user.email} won!`);
+        $('#player2').hide();
+    }else{
+        $('#player2').text(`${guest} won!`);
+        $('#player1').hide();
+    }
+    }
 }
 
 function clearBoard(){
@@ -164,8 +170,12 @@ function clearBoard(){
     })
 }
 
-function restartGame(){
-
+const restartGame = function(){
+    clearBoard();
+    $('#player1').show();
+    $('#player2').show();
+    $('#game').hide();
+    $('#begin-game').show();
 }
 
 module.exports = {
@@ -173,7 +183,8 @@ module.exports = {
     onSignIn,
     onNewGame,
     onUpdateGame,
-    onSignOut
+    onSignOut,
+    restartGame
 }
 
 /*

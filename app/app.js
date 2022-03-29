@@ -21,4 +21,5 @@ $(() => {
   $('#start-game').on('click', authEvents.onNewGame);
  // $('#game').on('click', authEvents.onUpdateGame)
  $('.sign-out').on('click', authEvents.onSignOut);
+ $('#new-game').on('click', authEvents.restartGame)
 })
