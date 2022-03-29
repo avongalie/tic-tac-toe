@@ -56,6 +56,9 @@ const onSignOut = function(){
 
 const onNewGame = function(event){
     event.preventDefault();
+    plays = 0;
+    tie = false;
+    gameStatus = false;
     if($('#guest').val() === ""){
         guest = "guest";
     }else{
@@ -138,7 +141,7 @@ function checkWin(){
         }
     })
 
-    if(gameStatus !== true) tie = true;
+    if(plays === 9 && gameStatus === false) tie = true;
 
 }
 
@@ -175,6 +178,9 @@ function clearBoard(){
 }
 
 const restartGame = function(){
+    plays = 0;
+    tie = false;
+    gameStatus = false;
     clearBoard();
     $('#player1').show();
     $('#player2').show();
