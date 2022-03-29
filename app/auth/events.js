@@ -9,6 +9,7 @@ const getFormFields = require('../../lib/get-form-fields.js')
 let plays = 0;
 let currentLetter = "X";
 let currentPlayer = "player1";
+let gameStatus = false;
 
 const onSignUp = function(event){
     event.preventDefault();
@@ -63,6 +64,9 @@ const onUpdateGame = function (event){
     gameCell.innerText = currentLetter;
     plays += 1;
     if(plays > 4) checkWin();
+    authApi.updateGame(cellIndex, currentLetter, gameStatus)
+            //.then((response) => console.log(response))
+    //console.log(store.game);
     if(currentLetter === "X"){
         currentLetter = "O";
         currentPlayer = "player2";
@@ -83,7 +87,7 @@ function checkWin(){
             }
         }
     )
-    console.log(gameCheckBoard);
+    //console.log(gameCheckBoard);
     const row1 = gameCheckBoard.slice(0,3);
     const row2 = gameCheckBoard.slice(3,6);
     const row3 = gameCheckBoard.slice(6,9);
@@ -101,10 +105,11 @@ function checkWin(){
             if(item[i] === 1){
                 r += 1;
                 //console.log(item[i])
-                console.log(r);
+                //console.log(r);
                 if(r === 3){
                     //win stuff
                     console.log(`${currentLetter} won!`)
+                    gameStatus = true;
                 }
             }else{
                 break;
@@ -120,6 +125,11 @@ function getColumn(array, index){
         r.push(array[i]);
     }
     return r;
+}
+
+function gameOver(){
+    //store game over in object;
+
 }
 
 module.exports = {
