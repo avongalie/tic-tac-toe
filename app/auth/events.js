@@ -12,6 +12,7 @@ let currentPlayer = "player1";
 let guest = "";
 let gameStatus = false;
 let tie = false;
+let currentColor = "red";
 
 const onSignUp = function(event){
     event.preventDefault();
@@ -59,6 +60,7 @@ const onNewGame = function(event){
     plays = 0;
     tie = false;
     gameStatus = false;
+    currentLetter = "X"
     if($('#guest').val() === ""){
         guest = "guest";
     }else{
@@ -181,6 +183,7 @@ const restartGame = function(){
     plays = 0;
     tie = false;
     gameStatus = false;
+    currentLetter = "X";
     clearBoard();
     $('#player1').show();
     $('#player2').show();
