@@ -45,6 +45,12 @@ const onSignIn = function(event){
     
 }
 
+const onSignOut = function(){
+    authApi.signOut()
+            .then(() => console.log("signed out"))
+            .catch(() => console.log("sign out not working"))
+}
+
 const onNewGame = function(event){
     event.preventDefault();
     guest = $('#guest').val();
@@ -152,6 +158,7 @@ module.exports = {
     onSignIn,
     onNewGame,
     onUpdateGame,
+    onSignOut
 }
 
 /*

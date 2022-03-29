@@ -51,7 +51,9 @@ const onUpdateGameSuccess = function(){
 }
 
 const onSignOut = function(){
- //would we need a success vs failure?????
+    $('#begin-game').hide();
+    $('#game').hide();
+    $('#homepage').show();
 }
 
 module.exports = {
@@ -59,5 +61,6 @@ module.exports = {
     onSignUpSuccess,
     onSignInFailure,
     onSignInSuccess,
-    onNewGameSuccess
+    onNewGameSuccess,
+    onSignOut
 }
