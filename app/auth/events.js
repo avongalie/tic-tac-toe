@@ -56,7 +56,11 @@ const onSignOut = function(){
 
 const onNewGame = function(event){
     event.preventDefault();
-    guest = $('#guest').val();
+    if($('#guest').val() === ""){
+        guest = "guest";
+    }else{
+        guest = $('#guest').val();
+    }
     $('#guest').val("");
         authApi
             .newGame()
