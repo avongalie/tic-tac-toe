@@ -51,9 +51,13 @@ const onUpdateGameSuccess = function(){
 }
 
 const onSignOut = function(){
+
+    $('#player1').show();
+    $('#player2').show();
     $('#begin-game').hide();
     $('#game').hide();
     $('#homepage').show();
+    
 }
 
 module.exports = {

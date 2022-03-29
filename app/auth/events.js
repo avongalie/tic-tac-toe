@@ -47,13 +47,18 @@ const onSignIn = function(event){
 
 const onSignOut = function(){
     authApi.signOut()
-            .then(() => console.log("signed out"))
-            .catch(() => console.log("sign out not working"))
+            .then(function(){
+                authUi.onSignOut()
+                clearBoard();
+                $('#player1').show();
+                $('#player2').show();
+            })
 }
 
 const onNewGame = function(event){
     event.preventDefault();
     guest = $('#guest').val();
+    $('#guest').val("");
         authApi
             .newGame()
             .then((response) => authUi.onNewGameSuccess(response, guest))
@@ -150,6 +155,16 @@ function gameOver(){
     $('#player2').text(`${guest} won!`);
     $('#player1').hide();
   }
+
+}
+
+function clearBoard(){
+    $('#gameboard > div').each(function(){
+        $(this)[0].innerText = "";
+    })
+}
+
+function restartGame(){
 
 }
 
