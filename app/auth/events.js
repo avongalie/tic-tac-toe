@@ -6,6 +6,9 @@ const authUi = require('./ui.js')
 const store = require('../store.js')
 const getFormFields = require('../../lib/get-form-fields.js')
 
+let plays = 0;
+let currentLetter = "X";
+
 const onSignUp = function(event){
     event.preventDefault();
     $('.display-text').text('');
@@ -43,17 +46,38 @@ const onNewGame = function(){
     const guest = $('#guest').val();
         authApi
             .newGame()
-            .then((response) => authUi.onNewGame(response, guest))
+            .then((response) => authUi.onNewGameSuccess(response, guest))
             .catch(() => console.log("failure"))
     
 }
 
-const onUpdateGame = function (){
+const onUpdateGame = function (event){
+    let gameCell = event.target
+    let cellIndex = gameCell.getAttribute('data-cell-index');
+    if(cellIndex === null)return;
+    //console.log(event);
+    if(gameCell.innerText !== "") return;
+    store.game.cells[cellIndex] = currentLetter;
+    //console.log(store.game.cells)
+   // console.log($('#gameboard').children[1])
+    if(currentLetter === "X"){
+        gameCell.innerText = "X";
+        currentLetter = "O";
+    }else{
+        gameCell.innerText = "O";
+        currentLetter = "X";
+    }
+    plays += 1;
+    
+}
 
+function checkWin(){
+    
 }
 
 module.exports = {
     onSignUp,
     onSignIn,
-    onNewGame
+    onNewGame,
+    onUpdateGame
 }
