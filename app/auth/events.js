@@ -8,6 +8,7 @@ const getFormFields = require('../../lib/get-form-fields.js')
 
 let plays = 0;
 let currentLetter = "X";
+let currentPlayer = "player1";
 
 const onSignUp = function(event){
     event.preventDefault();
@@ -59,20 +60,66 @@ const onUpdateGame = function (event){
     if(gameCell.innerText !== "") return;
     store.game.cells[cellIndex] = currentLetter;
     //console.log(store.game.cells)
-   // console.log($('#gameboard').children[1])
-    if(currentLetter === "X"){
-        gameCell.innerText = "X";
-        currentLetter = "O";
-    }else{
-        gameCell.innerText = "O";
-        currentLetter = "X";
-    }
+    gameCell.innerText = currentLetter;
     plays += 1;
-    
+    if(plays > 4) checkWin();
+    if(currentLetter === "X"){
+        currentLetter = "O";
+        currentPlayer = "player2";
+    }else{
+        currentLetter = "X";
+        currentPlayer = "player1";
+    }
 }
 
 function checkWin(){
+    let game = $('#gameboard > div')
+    let gameCheckBoard = [];
+    game.each(function(){
+            if($(this)[0].innerText === currentLetter){
+                gameCheckBoard.push(1);
+            }else{
+                gameCheckBoard.push(0)
+            }
+        }
+    )
+    console.log(gameCheckBoard);
+    const row1 = gameCheckBoard.slice(0,3);
+    const row2 = gameCheckBoard.slice(3,6);
+    const row3 = gameCheckBoard.slice(6,9);
+    const col1 = getColumn(gameCheckBoard, 0);
+    const col2 = getColumn(gameCheckBoard, 1);
+    const col3 = getColumn(gameCheckBoard, 2);
+    const dia1 = [gameCheckBoard[0],gameCheckBoard[4], gameCheckBoard[8]];
+    const dia2 = [gameCheckBoard[2],gameCheckBoard[4], gameCheckBoard[6]];
     
+    let winPossibilites = [];
+    winPossibilites.push(row1, row2, row3, col1, col2, col3, dia1, dia2);
+    winPossibilites.forEach(function(item){
+        let r = 0;
+        for(let i = 0; i < item.length; i++){
+            if(item[i] === 1){
+                r += 1;
+                //console.log(item[i])
+                console.log(r);
+                if(r === 3){
+                    //win stuff
+                    console.log(`${currentLetter} won!`)
+                }
+            }else{
+                break;
+            }
+        }
+    })
+
+}
+
+function getColumn(array, index){
+    let r = [];
+    for(let i = index; i < array.length; i+=3){
+        r.push(array[i]);
+    }
+    return r;
 }
 
 module.exports = {
@@ -81,3 +128,20 @@ module.exports = {
     onNewGame,
     onUpdateGame
 }
+
+/*
+
+win conditonals
+
+012
+345
+678
+
+036
+147
+258
+
+048
+246
+
+*/
