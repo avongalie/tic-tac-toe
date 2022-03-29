@@ -19,5 +19,6 @@ $(() => {
   $('#sign-up-form').on("submit", authEvents.onSignUp);
   $("#sign-in-form").on("submit", authEvents.onSignIn);
   $('#start-game').on('click', authEvents.onNewGame);
-  $('#game').on('click', authEvents.onUpdateGame)
+ // $('#game').on('click', authEvents.onUpdateGame)
+ $('.sign-out').on('click', authEvents.onSignOut);
 })

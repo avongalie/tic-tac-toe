@@ -21,7 +21,7 @@ const signIn = function(data) {
 const signOut = function() {
     return $.ajax({
         method: 'DELETE',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-up',
+        url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
         headers: {
             Authorization: 'Bearer ' + store.user.token
         }

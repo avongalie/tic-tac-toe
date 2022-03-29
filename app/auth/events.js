@@ -9,6 +9,7 @@ const getFormFields = require('../../lib/get-form-fields.js')
 let plays = 0;
 let currentLetter = "X";
 let currentPlayer = "player1";
+let guest = "";
 let gameStatus = false;
 
 const onSignUp = function(event){
@@ -44,12 +45,16 @@ const onSignIn = function(event){
     
 }
 
-const onNewGame = function(){
-    const guest = $('#guest').val();
+const onNewGame = function(event){
+    event.preventDefault();
+    guest = $('#guest').val();
         authApi
             .newGame()
             .then((response) => authUi.onNewGameSuccess(response, guest))
             .catch(() => console.log("failure"))
+
+        
+  $('#game').on('click', onUpdateGame);
     
 }
 
@@ -110,6 +115,7 @@ function checkWin(){
                     //win stuff
                     console.log(`${currentLetter} won!`)
                     gameStatus = true;
+                    gameOver();
                 }
             }else{
                 break;
@@ -130,13 +136,22 @@ function getColumn(array, index){
 function gameOver(){
     //store game over in object;
 
+  $('#game').off('click', onUpdateGame)
+  if(currentPlayer === "player1"){
+    $('#player1').text(`${store.user.email} won!`);
+    $('#player2').hide();
+  }else{
+    $('#player2').text(`${guest} won!`);
+    $('#player1').hide();
+  }
+
 }
 
 module.exports = {
     onSignUp,
     onSignIn,
     onNewGame,
-    onUpdateGame
+    onUpdateGame,
 }
 
 /*
