@@ -1,9 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body{
     text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 20pt;
 }
 
+h1{
+    margin: 3vh 0;
+    font-size: 40pt;
+}
+
+button{
+    margin-top: 20px;
+    padding: 2px 0;
+    width: 300px;
+    background-color: white;
+}
+
+input{
+    margin-top: 20px;
+}
 #gameboard{
     display: grid;
     grid-template-columns: 15vw 15vw 15vw;
@@ -13,4 +31,32 @@ body{
 
 #gameboard > div{
     border: 1px solid black;
+    font-size: 10vw;
+}
+
+#players{
+    display: flex;
+    justify-content: space-around;
+}
+
+#game-sign-out{
+    position: absolute;
+    bottom: 65px;
+    right: 10px;
+}
+
+#new-game{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+@media only screen and (min-width:974px){
+    #gameboard{
+        grid-template-columns: 146px 146px 146px;
+        grid-template-rows: 146px 146px 146px;
+    }
+    #gameboard > div{
+        font-size: 73pt;
+    }
 }
