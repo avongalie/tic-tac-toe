@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic Tac Toe</h1>
+      <div id="homepage">
+        <button id="sign-up-button">Sign Up</button>
+        <br>
+        <button id="sign-in-button">Sign In</button>
+      </div>
+      <div id="sign-up">
+        <p class="disclaimer">This is a toy application.<br> Do not enter real passwords, or passwords you have used anywhere else!</p>
+        <p class="display-text"></p>
+        <form id="sign-up-form">
+          Email: <input name="credentials[email]" type="email" placeholder="email">
+          <br>
+          Password: <input name="credentials[password]" type="password" placeholder="password">
+          <br>
+          Password Confirmation: <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation">
+          <br>
+          <button type="submit">Sign Up</button>
+        </form>
+        <button class="return-home">Return</button>
+      </div>
+      <div id="sign-in">
+        <p class="disclaimer">This is a toy application.<br> Do not enter real passwords, or passwords you have used anywhere else!</p>
+        <p class="display-text"></p>
+        <form id="sign-in-form">
+          Email: <input name="credentials[email]" type="email" placeholder="email">
+          <br>
+          Password: <input name="credentials[password]" type="password" placeholder="password">
+          <br>
+          <button type="submit">Sign In</button>
+        </form>
+        <button class="return-home">Return</button>
+      </div>
+      <div id="begin-game">
+        <p id="welcome">Welcome User!</p>
+        Guest Name: <input id="guest" type="text"><br>
+        <button id="start-game">Start Game</button><br>
+        <button class="sign-out">Sign Out</button>
+      </div>
+      <div id="game">
+        <div id="players">
+          <p id="player1"></p>
+          <p id="player2"></p>
+        </div>
+        <div id="gameboard">
+          <div id="s1" data-cell-index="0"></div>
+          <div id="s2" data-cell-index="1"></div>
+          <div id="s3" data-cell-index="2"></div>
+          <div id="s4" data-cell-index="3"></div>
+          <div id="s5" data-cell-index="4"></div>
+          <div id="s6" data-cell-index="5"></div>
+          <div id="s7" data-cell-index="6"></div>
+          <div id="s8" data-cell-index="7"></div>
+          <div id="s9" data-cell-index="8"></div>
+        </div>
+        <button id="game-sign-out"class="sign-out">Sign Out</button>
+        <button id="new-game">New Game</button>
+      </div>
+      <div id="light-theme"></div>
+      <div id="dark-theme"></div>
+      <a href="https://github.com/avongalie/tic-tac-toe"><img src="images/github_logo.png" alt="Github Link" id="github-link"></a>
+    </body>
+</html>

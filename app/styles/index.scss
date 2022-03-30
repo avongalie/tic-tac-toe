@@ -1,0 +1,184 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+$border-weight: 3px;
+
+body{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 20pt;
+}
+
+h1{
+    margin: 3vh 0;
+    font-size: 40pt;
+}
+
+button{
+    margin-top: 15px;
+    padding: 2px 0 7px 0;
+    width: 300px;
+    background-color: white;
+    transition: 0.3s ease;
+}
+button:hover{
+    color: white;
+    background-color: black;
+    border-color: white;
+    border-style: solid;
+}
+
+input{
+    margin-top: 20px;
+}
+#gameboard{
+    display: grid;
+    grid-template-columns: 15vw 15vw 15vw;
+    grid-template-rows: 15vw 15vw 15vw;
+    justify-content: center;
+}
+
+#gameboard > div{
+    //border: 1px solid black;
+    font-size: 10vw;
+    border-color: black;
+}
+
+#s1 {
+    border-right: $border-weight solid;
+    border-bottom: $border-weight solid;
+}
+#s2 {
+    border-right: $border-weight solid;
+    border-left: $border-weight solid;
+    border-bottom: $border-weight solid;
+}
+#s3 {
+    border-left: $border-weight solid;
+    border-bottom: $border-weight solid;
+}
+#s4 {
+    border-top: $border-weight solid;
+    border-right: $border-weight solid;
+    border-bottom: $border-weight solid;
+}
+#s5 {
+    border: $border-weight solid;
+}
+#s6 {
+    border-left: $border-weight solid;
+    border-bottom: $border-weight solid;
+    border-top: $border-weight solid;
+}
+#s7 {
+    border-right: $border-weight solid;
+    border-top: $border-weight solid;
+}
+#s8 {
+    border-left: $border-weight solid;
+    border-right: $border-weight solid;
+    border-top: $border-weight solid;
+}
+#s9{
+    border-left: $border-weight solid;
+    border-top: $border-weight solid;
+}
+
+#players{
+    display: flex;
+    justify-content: space-around;
+}
+
+#game-sign-out{
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+}
+
+#new-game{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.disclaimer{
+    font-family: serif;
+    font-size: 15pt;
+    color: red;
+    background-color: lightgrey;
+    border: 2px solid red;
+    margin: 0 10vw;
+    margin-bottom: 10px;
+}
+#github-link{
+    position: fixed;
+    bottom: 10px;
+    width: 50px;
+    right: 48vw;
+}
+
+.display-text{
+    margin: 0;
+    background-color: #ffdce0;
+    color: #672426;
+}
+
+#dark-theme{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+#light-theme{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+
+@media only screen and (min-width:974px){
+    #gameboard{
+        grid-template-columns: 146px 146px 146px;
+        grid-template-rows: 146px 146px 146px;
+    }
+    #gameboard > div{
+        font-size: 73pt;
+    }
+}
+
+@media only screen and (max-width:500px){
+    #gameboard{
+        grid-template-columns: 75px 75px 75px;
+        grid-template-rows: 75px 75px 75px;
+    }
+    #gameboard > div{
+        font-size: 38pt;
+    }
+}
+
+@media only screen and (max-width:600px){
+    #players{
+        flex-direction: column;
+    }
+
+    #github-link{
+        right: 10px;
+    }   
+
+    #game-sign-out{
+        bottom: 140px;
+    }
+
+    #new-game{
+        bottom: 70px;
+    }
+    #new-game, #game-sign-out{
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+}
