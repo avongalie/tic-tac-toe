@@ -23,11 +23,13 @@ const onSignUp = function(event){
     let form = event.target
     let data = getFormFields(form);
 
-
-    if(data.credentials.password !== data.credentials.password_confirmation){
+    if(data.credentials.email === ""){
+        $('.display-text').text('Please enter email');
+    }else if((data.credentials.password === "") || (data.credentials.password_confirmation === "")){
+        $('.display-text').text('Please enter password');
+    }else if(data.credentials.password !== data.credentials.password_confirmation){
         $('.display-text').text('Passwords do not match');
     }else{
-
         authApi
             .signUp(data)
             .then(() => authUi.onSignUpSuccess())

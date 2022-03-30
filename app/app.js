@@ -11,6 +11,11 @@ $(() => {
   // your JS code goes here
   //$('#s1').css("border-color", "red");
   //THIS WORKS
+  $('input').on({
+    keydown: function(e) {
+      console.log(e)
+      if (e.which === 32) return false;
+    }})
   $('#sign-up').hide();
   $('#sign-in').hide();
   $('#begin-game').hide();
