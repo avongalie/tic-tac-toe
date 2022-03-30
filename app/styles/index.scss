@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+$border-weight: 3px;
+
 body{
     text-align: center;
     font-family: 'Pacifico', cursive;
@@ -30,8 +32,48 @@ input{
 }
 
 #gameboard > div{
-    border: 1px solid black;
+    //border: 1px solid black;
     font-size: 10vw;
+}
+
+#s1 {
+    border-right: $border-weight solid black;
+    border-bottom: $border-weight solid black;
+}
+#s2 {
+    border-right: $border-weight solid black;
+    border-left: $border-weight solid black;
+    border-bottom: $border-weight solid black;
+}
+#s3 {
+    border-left: $border-weight solid black;
+    border-bottom: $border-weight solid black;
+}
+#s4 {
+    border-top: $border-weight solid black;
+    border-right: $border-weight solid black;
+    border-bottom: $border-weight solid black;
+}
+#s5 {
+    border: $border-weight solid black;
+}
+#s6 {
+    border-left: $border-weight solid black;
+    border-bottom: $border-weight solid black;
+    border-top: $border-weight solid black;
+}
+#s7 {
+    border-right: $border-weight solid black;
+    border-top: $border-weight solid black;
+}
+#s8 {
+    border-left: $border-weight solid black;
+    border-right: $border-weight solid black;
+    border-top: $border-weight solid black;
+}
+#s9{
+    border-left: $border-weight solid black;
+    border-top: $border-weight solid black;
 }
 
 #players{
