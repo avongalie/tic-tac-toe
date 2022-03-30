@@ -9,17 +9,17 @@ const display = require('./display.js')
 
 $(() => {
   // your JS code goes here
-  //$('#s1').css("border-color", "red");
-  //THIS WORKS
   $('input').on({
     keydown: function(e) {
-      console.log(e)
       if (e.which === 32) return false;
     }})
   $('#sign-up').hide();
   $('#sign-in').hide();
   $('#begin-game').hide();
   $('#game').hide();
+  $('#light-theme').hide();
+  $('#dark-theme').on('click', () => authEvents.changeTheme("dark"));
+  $('#light-theme').on('click', () => authEvents.changeTheme("light"));
   $('#sign-up-button').on("click", display.signUpClick)
   $('#sign-in-button').on("click", display.signInClick)
   $('.return-home').on("click", display.returnHome)

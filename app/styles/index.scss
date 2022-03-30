@@ -19,6 +19,7 @@ button{
     padding: 2px 0 7px 0;
     width: 300px;
     background-color: white;
+    transition: 0.3s ease;
 }
 button:hover{
     color: white;
@@ -40,46 +41,47 @@ input{
 #gameboard > div{
     //border: 1px solid black;
     font-size: 10vw;
+    border-color: black;
 }
 
 #s1 {
-    border-right: $border-weight solid black;
-    border-bottom: $border-weight solid black;
+    border-right: $border-weight solid;
+    border-bottom: $border-weight solid;
 }
 #s2 {
-    border-right: $border-weight solid black;
-    border-left: $border-weight solid black;
-    border-bottom: $border-weight solid black;
+    border-right: $border-weight solid;
+    border-left: $border-weight solid;
+    border-bottom: $border-weight solid;
 }
 #s3 {
-    border-left: $border-weight solid black;
-    border-bottom: $border-weight solid black;
+    border-left: $border-weight solid;
+    border-bottom: $border-weight solid;
 }
 #s4 {
-    border-top: $border-weight solid black;
-    border-right: $border-weight solid black;
-    border-bottom: $border-weight solid black;
+    border-top: $border-weight solid;
+    border-right: $border-weight solid;
+    border-bottom: $border-weight solid;
 }
 #s5 {
-    border: $border-weight solid black;
+    border: $border-weight solid;
 }
 #s6 {
-    border-left: $border-weight solid black;
-    border-bottom: $border-weight solid black;
-    border-top: $border-weight solid black;
+    border-left: $border-weight solid;
+    border-bottom: $border-weight solid;
+    border-top: $border-weight solid;
 }
 #s7 {
-    border-right: $border-weight solid black;
-    border-top: $border-weight solid black;
+    border-right: $border-weight solid;
+    border-top: $border-weight solid;
 }
 #s8 {
-    border-left: $border-weight solid black;
-    border-right: $border-weight solid black;
-    border-top: $border-weight solid black;
+    border-left: $border-weight solid;
+    border-right: $border-weight solid;
+    border-top: $border-weight solid;
 }
 #s9{
-    border-left: $border-weight solid black;
-    border-top: $border-weight solid black;
+    border-left: $border-weight solid;
+    border-top: $border-weight solid;
 }
 
 #players{
@@ -88,13 +90,13 @@ input{
 }
 
 #game-sign-out{
-    position: absolute;
+    position: fixed;
     bottom: 70px;
     right: 10px;
 }
 
 #new-game{
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     right: 10px;
 }
@@ -109,7 +111,7 @@ input{
     margin-bottom: 10px;
 }
 #github-link{
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     right: 48vw;
     width: 50px;
@@ -119,6 +121,23 @@ input{
     margin: 0;
     background-color: #ffdce0;
     color: #672426;
+}
+
+#dark-theme{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+#light-theme{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
 }
 
 @media only screen and (min-width:974px){

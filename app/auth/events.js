@@ -64,8 +64,10 @@ const onNewGame = function(event){
     plays = 0;
     tie = false;
     gameStatus = false;
-    currentLetter = "X"
-    urrentColor = color1;
+    currentLetter = "X";
+    currentColor = color1;
+    exports.color1 = color1;
+    exports.color2 = color2;
     if($('#guest').val() === ""){
         guest = "guest";
     }else{
@@ -201,16 +203,84 @@ const restartGame = function(){
     $('#begin-game').show();
 }
 
+function changeTheme(theme){
+    if(theme === "dark"){
+        color1 = "#a017f1";
+        color2 = "#fed500";
+        $('body').css({"background-color": "black", "color": "white"});
+        $('button').css({"background-color": "black", "color": "white", "border-style": "solid", "border-color": "white"})
+        $('button').on("mouseover", function(){
+            $(this).css({"color": "black", "background-color": "white", "border-color": "black"});
+        })
+        $('button').on("mouseout", function(){
+            $(this).css({"color": "white", "background-color": "black", "border-color": "white"});
+        })
+        $('.disclaimer').css("background-color", "#2a2a2a");
+        $('.display-text').css({"background-color": "#4a303a", "color": "#f49895"})
+        $('#gameboard > div').css("border-color", "white");
+        $('#github-link').attr("src", "images/github_logo_white.png")
+        $('#player1 > span').css("color", color1);
+        $('#player2 > span').css("color", color2);
+        let game = $('#gameboard > div')
+        game.each(function(){
+            if($(this)[0].innerText === "X"){
+                $(this).css("color", color1);
+            }else if($(this)[0].innerText === "O"){  
+                $(this).css("color", color2);
+            }
+        }
+        )
+        $('#dark-theme').hide();
+        $('#light-theme').show();
+    }else if(theme === "light"){
+        color1 = "red";
+        color2 = "blue";
+        $('body').css({"background-color": "white", "color": "black"});
+        $('button').css({"background-color": "white", "color": "black", "border-style": "solid", "border-color": "black"})
+        $('button').on("mouseover", function(){
+            $(this).css({"color": "white", "background-color": "black", "border-color": "white"});
+        })
+        $('button').on("mouseout", function(){
+            $(this).css({"color": "black", "background-color": "white", "border-color": "black"});
+        })
+        $('.disclaimer').css("background-color", "lightgrey");
+        $('.display-text').css({"background-color": "#ffdce0", "color": "#672426"})
+        $('#gameboard > div').css("border-color", "black");
+        $('#github-link').attr("src", "images/github_logo.png")
+        $('#player1 > span').css("color", color1);
+        $('#player2 > span').css("color", color2);
+        let game = $('#gameboard > div')
+        game.each(function(){
+            if($(this)[0].innerText === "X"){
+                $(this).css("color", color1);
+            }else if($(this)[0].innerText === "O"){  
+                $(this).css("color", color2);
+            }
+        }
+        )
+        $('#light-theme').hide();
+        $('#dark-theme').show();
+    }
+
+    if(currentLetter === "X"){
+        currentColor = color1;
+    }else{
+        currentColor = color2;
+    }
+    
+}
+
 module.exports = {
     onSignUp,
     onSignIn,
     onNewGame,
     onUpdateGame,
     onSignOut,
-    restartGame
+    restartGame,
+    changeTheme
 }
-exports.color1 = color1;
-exports.color2 = color2;
+// exports.color1 = color1;
+// exports.color2 = color2;
 
 /*
 
