@@ -12,7 +12,9 @@ let currentPlayer = "player1";
 let guest = "";
 let gameStatus = false;
 let tie = false;
-let currentColor = "red";
+let color1 = "red";
+let color2 = "blue";
+let currentColor = color1;
 
 const onSignUp = function(event){
     event.preventDefault();
@@ -61,6 +63,7 @@ const onNewGame = function(event){
     tie = false;
     gameStatus = false;
     currentLetter = "X"
+    urrentColor = color1;
     if($('#guest').val() === ""){
         guest = "guest";
     }else{
@@ -86,6 +89,8 @@ const onUpdateGame = function (event){
     store.game.cells[cellIndex] = currentLetter;
     //console.log(store.game.cells)
     gameCell.innerText = currentLetter;
+    console.log(gameCell);
+    $(gameCell).css('color', currentColor);
     plays += 1;
     if(plays > 4) checkWin();
     if(plays === 9 && tie === true) gameOver();
@@ -95,9 +100,11 @@ const onUpdateGame = function (event){
     if(currentLetter === "X"){
         currentLetter = "O";
         currentPlayer = "player2";
+        currentColor = color2;
     }else{
         currentLetter = "X";
         currentPlayer = "player1";
+        currentColor = color1;
     }
 }
 
@@ -164,10 +171,10 @@ function gameOver(){
     $('#player2').hide();
   }else{
     if(currentPlayer === "player1"){
-        $('#player1').text(`${store.user.email} won!`);
+        $('#player1').html(`<span style="color: ${color1};">X</span> ${store.user.email} won!`);
         $('#player2').hide();
     }else{
-        $('#player2').text(`${guest} won!`);
+        $('#player2').html(`<span style="color: ${color2};">O</span> ${guest} won!`);
         $('#player1').hide();
     }
     }
@@ -184,6 +191,7 @@ const restartGame = function(){
     tie = false;
     gameStatus = false;
     currentLetter = "X";
+    currentColor = color1;
     clearBoard();
     $('#player1').show();
     $('#player2').show();
@@ -199,6 +207,8 @@ module.exports = {
     onSignOut,
     restartGame
 }
+exports.color1 = color1;
+exports.color2 = color2;
 
 /*
 
