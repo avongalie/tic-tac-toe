@@ -1,11 +1,12 @@
 //file that grabs from the API
 const store = require('../store.js');
+const config = require('../config.js');
 
 
 const signUp = function(data) {
     return $.ajax({
         method: 'POST',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-up',
+        url: config.apiUrl + '/sign-up',
         data
     })
 }
@@ -13,7 +14,7 @@ const signUp = function(data) {
 const signIn = function(data) {
     return $.ajax({
         method: 'POST',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-in',
+        url: config.apiUrl + '/sign-in',
         data
     })
 }
@@ -21,7 +22,7 @@ const signIn = function(data) {
 const signOut = function() {
     return $.ajax({
         method: 'DELETE',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
+        url: config.apiUrl + '/sign-out',
         headers: {
             Authorization: 'Bearer ' + store.user.token
         }
@@ -31,7 +32,7 @@ const signOut = function() {
 const changePassword = function(data) {
     return $.ajax({
         method: 'PATCH',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/change-password',
+        url: config.apiUrl + '/change-password',
         headers: {
             Authorization: 'Bearer ' + store.user.token
         },
@@ -42,7 +43,7 @@ const changePassword = function(data) {
 const newGame = function() {
     return $.ajax({
         method: 'POST',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+        url: config.apiUrl + '/games',
         headers: {
             Authorization: 'Bearer ' + store.user.token
         }
@@ -52,7 +53,7 @@ const newGame = function() {
 const updateGame = function(index, value, gameStatus) {
     return $.ajax({
         method: 'PATCH',
-        url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + store.game._id,
+        url: config.apiUrl + '/games/' + store.game._id,
         //might need game ID instead?
         headers: {
             Authorization: 'Bearer ' + store.user.token
