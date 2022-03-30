@@ -113,8 +113,8 @@ input{
 #github-link{
     position: fixed;
     bottom: 10px;
-    right: 48vw;
     width: 50px;
+    right: 48vw;
 }
 
 .display-text{
@@ -163,5 +163,22 @@ input{
 @media only screen and (max-width:600px){
     #players{
         flex-direction: column;
+    }
+
+    #github-link{
+        right: 10px;
+    }   
+
+    #game-sign-out{
+        bottom: 140px;
+    }
+
+    #new-game{
+        bottom: 70px;
+    }
+    #new-game, #game-sign-out{
+        margin: 0 auto;
+        left: 0;
+        right: 0;
     }
 }

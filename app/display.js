@@ -2,6 +2,7 @@ function returnHome(){
     $('#sign-up').hide();
     $('#sign-in').hide();
     $('#homepage').show();
+    $('form').trigger("reset");
     $('.display-text').text("");
 }
 
