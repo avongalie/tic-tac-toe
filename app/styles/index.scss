@@ -104,7 +104,7 @@ input{
 #github-link{
     position: absolute;
     bottom: 10px;
-    right: 48%;
+    right: 48vw;
     width: 50px;
 }
 
@@ -115,5 +115,21 @@ input{
     }
     #gameboard > div{
         font-size: 73pt;
+    }
+}
+
+@media only screen and (max-width:500px){
+    #gameboard{
+        grid-template-columns: 75px 75px 75px;
+        grid-template-rows: 75px 75px 75px;
+    }
+    #gameboard > div{
+        font-size: 38pt;
+    }
+}
+
+@media only screen and (max-width:600px){
+    #players{
+        flex-direction: column;
     }
 }

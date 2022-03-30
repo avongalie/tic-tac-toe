@@ -9,6 +9,8 @@ const display = require('./display.js')
 
 $(() => {
   // your JS code goes here
+  //$('#s1').css("border-color", "red");
+  //THIS WORKS
   $('#sign-up').hide();
   $('#sign-in').hide();
   $('#begin-game').hide();
@@ -19,7 +21,6 @@ $(() => {
   $('#sign-up-form').on("submit", authEvents.onSignUp);
   $("#sign-in-form").on("submit", authEvents.onSignIn);
   $('#start-game').on('click', authEvents.onNewGame);
- // $('#game').on('click', authEvents.onUpdateGame)
  $('.sign-out').on('click', authEvents.onSignOut);
  $('#new-game').on('click', authEvents.restartGame)
 })
