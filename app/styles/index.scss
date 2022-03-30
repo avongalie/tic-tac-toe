@@ -51,6 +51,15 @@ input{
     right: 10px;
 }
 
+.disclaimer{
+    font-family: serif;
+    font-size: 15pt;
+    color: red;
+    background-color: lightgrey;
+    border: 2px solid red;
+    margin: 0 10vh;
+}
+
 @media only screen and (min-width:974px){
     #gameboard{
         grid-template-columns: 146px 146px 146px;
